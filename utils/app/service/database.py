@@ -17,8 +17,8 @@ def insert_order(
     data: str,
     session: Session
 ):
-    #validation = model_checker(data)
-    validation = "{ \"status\" : \"valid\", \"message\" : \"Data valid\"}"
+    validation = model_checker(data)
+    #validation = "{ \"status\" : \"valid\", \"message\" : \"Data valid\"}"
     print(f"DEBUG : {validation}")
     try:
         validation_json = json.loads(validation)
