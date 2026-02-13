@@ -6,10 +6,6 @@ from sqlalchemy.orm import Session
 import json
 
 def init_db():
-    """
-    Membuat tabel jika belum ada.
-    Aman dipanggil berulang kali.
-    """
     Base.metadata.create_all(bind=engine)
 
 

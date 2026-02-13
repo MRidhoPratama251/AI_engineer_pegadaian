@@ -80,8 +80,6 @@ async def startup_event():
     asyncio.create_task(cleanup_expired_verifications())
 
 
-# Mount static files (Frontend)
-# Must be AFTER all API routes to avoid shadowing
 static_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "static")
 if not os.path.exists(static_dir):
     os.makedirs(static_dir)

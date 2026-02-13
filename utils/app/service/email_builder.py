@@ -82,16 +82,3 @@ def send_email(id_percakapan, email, nama_customer, nama_barang, jumlah_barang, 
     return {
         "kode_unik" : kode_unik
     }
-    
-    # id_verifikasi = Column(Integer, primary_key=True, index=True)
-    # id_order = Column(Integer, ForeignKey('orders.id'))
-    
-    # kode_unik = Column(String, nullable=False)
-
-    # created_at = Column(
-    #     DateTime(timezone=True),
-    #     server_default=func.now(),
-    #     nullable=False
-    # ),
-
-    # order = relationship("Order", back_populates="verifications")  

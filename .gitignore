@@ -6,3 +6,4 @@ utils/project_docs.txt
 temp_dashboard/
 prompt_design/
 upload_knowledge_base/
+utils/.env
