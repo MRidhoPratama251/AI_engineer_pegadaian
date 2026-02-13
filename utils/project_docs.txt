@@ -1,0 +1,50 @@
+Saya butuh sebuah website dashboard untuk admin perusahaan gadai barang emas & elektronik. Dashboard ini ditujukan untuk menampilkan informasi jumlah barang yang digadai berdasarkan database postgre yang sebelumnya saya sudah siapkan. Berikut 2 struktur tabel databasenya :
+Nama tabel 1 : `orders` yang berarti sedang customer sudah mendaftar
+Kolom :
+id, 
+id_percakapan (string),
+nama_customer, 
+jenis_barang, 
+nama_barang,
+jumlah_barang, 
+estimasi_nilai_barang, 
+wilayah,
+status : <on process>
+
+Nama tabel 2 : `n8n_chat_histories` yang berfungsi sebagai chat history
+Kolom :
+id, 
+session_id (string),
+message (jsonb) : {“type” : human or ai or tools interaction, “content” : <string>, “additional_kwargs” : {}, “response_metadata” : {}}
+
+Nama tabel 3 : `verifications` ini adalah daftar kode unik
+Kolom :
+id_verifikasi, 
+id_percakapan (string),
+nama_customer, 
+jenis_barang, 
+nama_barang,
+jumlah_barang, 
+estimasi_nilai_barang, 
+wilayah,
+email,
+kode_unik : <on process>
+
+
+tools yang sudah saya buat ada n8n yang running di https://precaudal-karleen-dasyurine.ngrok-free.dev/ dan localhost:2026 untuk fastapi.
+Fastapi ada di folder “/utils” sebagai utilitas penungjang job n8n.
+
+Nah seperti itu terkait hal yang sudah saya buat. 
+
+Sekarang saya ingin kamu membuatkan sebuah website 1 page seperti dashboard yang modern untuk melihat daftar customer yang masih on process. Dimana admin bisa mengklik tombol verifikasi untuk setiap user yang statusnya on process, kemudian tombol tersebut akan memicu pengiriman email dengan yagmail ke email user. Dan user di arahkan untuk mengirimkan kode unik tersebut ke chat telegram.
+Jika kode unik diterima maka ai akan mengirimkan payload ke api /verifikasi kemudian status user akan berubah jadi verified. Namun user diberikan batas waktu 1*24 jam untuk verifikasi, jika tidak, maka kode unik akan dihapus beserta dengan pesanan tersebut.
+
+Untuk tampilan saya ingin ada semacam tabel di page tersebut dengan y scrollbar dan x scrollbar, kemudian saya ingin agar ada grafik yang informatif lain mengenai piechart, darimana saja user berasal berdasarkan kategori Jawa Timur, DKI Jakarta, Jawa Timur, Wilayah Lain.
+Saya ingin di setiap rownya itu ada tombol delete di ujung kananya dan jika status sudah berubah menjadi verified maka tombol send_verification untuk email akan disabled. 
+
+Gunakan stack typescript, react, dan tailwind css.
+Jangan berikan emoji pada skrip yang kamu buat. Cukup berikan keterangan singkat yang intuitif.
+Buat agar websitenya responsif, modern, kompatibel dengan tampilan mobile.
+Selain itu pada bagian backend di folder /utils mungkin tetap butuh beberapa penyesuaian karena ada beberapa fungsi yang isinya belum dibuat.
+Jangan lupa untuk memikirkan job terkait pengecekan apakah daftar kode unik di tabel verification sudah melewati jadwal kadaluwarsa atau belum.
+
